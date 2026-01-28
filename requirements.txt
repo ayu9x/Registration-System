@@ -1,0 +1,16 @@
+# Selenium Automation Requirements
+# Install using: pip install -r requirements.txt
+
+# Core automation framework
+selenium==4.16.0
+
+# Automatic WebDriver management
+webdriver-manager==4.0.1
+
+# Additional utilities (optional but recommended)
+Pillow==10.1.0          # For image processing of screenshots
+pytest==7.4.3           # If you want to run tests with pytest framework
+pytest-html==4.1.1      # For HTML test reports
+
+# Note: Make sure you have Google Chrome installed
+# Chrome version should match ChromeDriver version (handled automatically by webdriver-manager)

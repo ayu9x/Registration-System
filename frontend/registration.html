@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligent Registration System | Frugal Testing Assignment</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-effects">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <div class="grain-overlay"></div>
+    </div>
+
+    <div class="container">
+        <div class="form-wrapper">
+            <!-- Header Section -->
+            <header class="form-header">
+                <div class="logo-section">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h1>Intelligent Registration</h1>
+                </div>
+                <p class="subtitle">Create your account with smart validation</p>
+            </header>
+
+            <!-- Alert Container -->
+            <div id="alertContainer" class="alert-container"></div>
+
+            <!-- Registration Form -->
+            <form id="registrationForm" novalidate>
+                <!-- Personal Information Section -->
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <span class="section-icon">👤</span>
+                        Personal Information
+                    </h2>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName" class="required">First Name</label>
+                            <input type="text" id="firstName" name="firstName" class="form-control" required>
+                            <span class="error-message"></span>
+                            <span class="success-icon">✓</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastName" class="required">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" class="form-control" required>
+                            <span class="error-message"></span>
+                            <span class="success-icon">✓</span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email" class="required">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                            <span class="error-message"></span>
+                            <span class="success-icon">✓</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone" class="required">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="+91 98765 43210" required>
+                            <span class="error-message"></span>
+                            <span class="success-icon">✓</span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" name="age" class="form-control" min="18" max="100">
+                            <span class="error-message"></span>
+                            <span class="success-icon">✓</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="required">Gender</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="radio" name="gender" value="male" required>
+                                    <span class="checkbox-custom"></span>
+                                    <span>Male</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="radio" name="gender" value="female" required>
+                                    <span class="checkbox-custom"></span>
+                                    <span>Female</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="radio" name="gender" value="other" required>
+                                    <span class="checkbox-custom"></span>
+                                    <span>Other</span>
+                                </label>
+                            </div>
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Address Information Section -->
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <span class="section-icon">📍</span>
+                        Address Information
+                    </h2>
+
+                    <div class="form-group">
+                        <label for="address">Street Address</label>
+                        <input type="text" id="address" name="address" class="form-control" placeholder="123 Main Street, Apartment 4B">
+                        <span class="error-message"></span>
+                        <span class="success-icon">✓</span>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="country" class="required">Country</label>
+                            <select id="country" name="country" class="form-control" required>
+                                <option value="">Select Country</option>
+                            </select>
+                            <span class="error-message"></span>
+                            <span class="success-icon">✓</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="state" class="required">State</label>
+                            <select id="state" name="state" class="form-control" required disabled>
+                                <option value="">Select State</option>
+                            </select>
+                            <span class="error-message"></span>
+                            <span class="success-icon">✓</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="city" class="required">City</label>
+                            <select id="city" name="city" class="form-control" required disabled>
+                                <option value="">Select City</option>
+                            </select>
+                            <span class="error-message"></span>
+                            <span class="success-icon">✓</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security Section -->
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <span class="section-icon">🔒</span>
+                        Security
+                    </h2>
+
+                    <div class="form-group">
+                        <label for="password" class="required">Password</label>
+                        <div class="password-input-wrapper">
+                            <input type="password" id="password" name="password" class="form-control" required>
+                            <button type="button" class="toggle-password" data-target="password">
+                                <svg class="eye-icon" viewBox="0 0 24 24" fill="none">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <span class="error-message"></span>
+                        <div class="password-strength">
+                            <div class="strength-meter">
+                                <div class="strength-meter-fill"></div>
+                            </div>
+                            <span class="strength-text"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword" class="required">Confirm Password</label>
+                        <div class="password-input-wrapper">
+                            <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required>
+                            <button type="button" class="toggle-password" data-target="confirmPassword">
+                                <svg class="eye-icon" viewBox="0 0 24 24" fill="none">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <span class="error-message"></span>
+                        <span class="success-icon">✓</span>
+                    </div>
+                </div>
+
+                <!-- Terms and Conditions -->
+                <div class="form-section">
+                    <div class="form-group checkbox-group-single">
+                        <label class="checkbox-label required">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <span class="checkbox-custom"></span>
+                            <span>I agree to the <a href="#" class="link">Terms & Conditions</a> and <a href="#" class="link">Privacy Policy</a></span>
+                        </label>
+                        <span class="error-message"></span>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-actions">
+                    <button type="submit" id="submitBtn" class="btn-submit" disabled>
+                        <span class="btn-text">Create Account</span>
+                        <span class="btn-loader"></span>
+                    </button>
+                    <p class="form-footer">
+                        Already have an account? <a href="#" class="link">Sign in</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="validation.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
