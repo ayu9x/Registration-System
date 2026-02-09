@@ -195,20 +195,20 @@ class FormValidator {
 
     // Validate phone number
     validatePhone(value, country, rules) {
-        // Remove all non-digit characters except +
-        const cleanPhone = value.replace(/[^\d+]/g, '');
+        // Normalize to digits only for consistent country code matching
+        const normalizedPhone = value.replace(/\D/g, '');
 
-        if (cleanPhone.length < 10) {
+        if (normalizedPhone.length < 10) {
             return { isValid: false, error: rules.errorMessages.pattern };
         }
 
         // Check country code if country is selected
         if (country && countryPhoneCodes[country]) {
-            const countryCode = countryPhoneCodes[country];
-            if (!cleanPhone.startsWith(countryCode.replace('+', ''))) {
+            const countryCode = countryPhoneCodes[country].replace(/\D/g, '');
+            if (!normalizedPhone.startsWith(countryCode)) {
                 return {
                     isValid: false,
-                    error: `${rules.errorMessages.countryCode} (${countryCode})`
+                    error: `${rules.errorMessages.countryCode} (+${countryCode})`
                 };
             }
         }
